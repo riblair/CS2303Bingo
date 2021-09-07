@@ -19,7 +19,9 @@ bool testMakeLList();
 bool testEnqueue();
 bool testRemoveFromList();
 bool testPrintHistory();
-
+bool testcallLetter();
+bool testcallNumber();
+bool testmakeLetterLowercase();
 
 
 #endif /* TESTS_H_ */
