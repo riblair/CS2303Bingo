@@ -10,7 +10,7 @@
 bool production(int argc, char* argv[])
 {
 	bool answer = true;
-	int nCalls = -1;
+	int nCalls = 1;
 
 		if(argc <=1) //no interesting information
 		{
@@ -68,7 +68,17 @@ bool production(int argc, char* argv[])
 	    for(int i = 0; i<nCalls; i++)
 	    {
 	    	//get what caller calls
+	    	char callL = callLetter();
+	    	char callN = callNumber();
+	    	printf("Does |%c%c| exist on the board?",callL,callN);
 	    	//is it a match?
+	    	char query[100];
+	    	bzero(query, 100);
+	    	if(getYesNo(query))
+	    	{
+	    		makeLetterLowercase(theSpaceP,callL,callN,5);
+	    		//check for a win here?
+	    	}
 	    	//show/display the board
 	    	//save result on linked list
 	    	//did we win?
