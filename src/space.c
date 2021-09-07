@@ -13,11 +13,13 @@ void initSpace(cardCellContent** corner, int howManyCols)
 		for(int col = 0; col < howManyCols; col++)
 		{
 			cardCellContent* x = (cardCellContent*) malloc (sizeof(cardCellContent)); //reserve a cardCell on heap
-			x->row = 0;
-			x->col = 0;
+			x->row = row;
+			x->col = col;
 			//call rand
-			x->letter = 'A';
-			x->digit = '0';
+			int randomLet = rand() % 26 + 65;
+			x->letter = (char)randomLet;
+			int randomNum = rand() % 10 + 48;
+			x->digit = (char)randomNum;
 			cardCellContent**  thatCellP = corner + row*howManyCols + col;
 			*thatCellP = x; //put its address into bingo card space
 		}
