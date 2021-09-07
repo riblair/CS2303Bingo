@@ -38,3 +38,19 @@ void displaySpace(cardCellContent** corner, int howManyCols)
 	}
 }
 
+void makeLetterLowercase(cardCellContent** corner, char letter, char number, int howManyCols)
+{
+	for(int row = 0; row< howManyCols; row++)
+		{
+			for(int col = 0; col < howManyCols; col++)
+			{
+				cardCellContent**  thatCellP = corner + row*howManyCols + col;
+				if((*thatCellP)->letter == letter && (*thatCellP)->digit == number)
+				{
+					int lowerCase = (int)(*thatCellP)->letter + 32;
+					(*thatCellP)->letter = (char)lowerCase;
+					(*thatCellP)->matched = true;
+				}
+			}
+		}
+}

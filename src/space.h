@@ -24,5 +24,6 @@
 
 void initSpace(cardCellContent**, int);
 void displaySpace(cardCellContent**, int);
+void makeLetterLowercase(cardCellContent** , char , char , int );
 
 #endif /* SPACE_H_ */
