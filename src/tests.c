@@ -205,4 +205,103 @@ bool testPrintHistory()
 	return ok;
 }
 
+bool testcallLetter()
+{
+	bool ok = true;
+	puts("starting testcallLetter");
+
+	char letter = callLetter();
+	int letterI = (int)letter;
+	if(letterI == NULL)
+	{
+		ok = false;
+	}
+	if(letterI < 65 || letterI > 90)
+	{
+		ok = false;
+	}
+	if(ok)
+	{
+		puts("test callLetter did work");
+	}
+	else
+	{
+		puts("test callLetter didn't work");
+	}
+	return ok;
+}
+
+bool testcallNumber()
+{
+	bool ok = true;
+	puts("starting testcallLetter");
+	char number = callNumber();
+	int numberI = (int)number;
+	if(numberI == NULL)
+		{
+			ok = false;
+		}
+		if(numberI < 48 || numberI > 57)
+		{
+			ok = false;
+		}
+		if(ok)
+		{
+			puts("test callNumber did work");
+		}
+		else
+		{
+			puts("test callNumber didn't work");
+		}
+	return ok;
+}
+
+bool testmakeLetterLowercase()
+{
+	bool ok = true;
+	cardCellContent** theBoardTest = (cardCellContent**) malloc(5*5*sizeof(cardCellContent*));
+
+	initSpace(theBoardTest, 5);
+
+	//Making a consistent board
+	cardCellContent* answer1 = (cardCellContent*) malloc(sizeof(cardCellContent));
+	answer1->col = 0;
+	answer1->row = 0;
+	answer1->letter = 'A';
+	answer1->digit = '0';
+	*theBoardTest = answer1;
+	cardCellContent* answer2 = (cardCellContent*) malloc(sizeof(cardCellContent));
+	answer2->col = 2;
+	answer2->row = 2;
+	answer2->letter = 'E';
+	answer2->digit = '3';
+	cardCellContent** thatCellP = theBoardTest + 12;
+	*thatCellP = answer2;
+
+	makeLetterLowercase(theBoardTest,'A','0',5);
+	int a1 = (int) (*theBoardTest)->letter;
+	if(a1 != 97)
+	{
+		ok = false;
+
+	}
+	makeLetterLowercase(theBoardTest,'E','3',5);
+	int a2 = (int) (*thatCellP)->letter;
+	if(a2 != 101)
+	{
+		ok = false;
+	}
+
+	if(ok)
+		{
+			puts("test makeLetterLowercase did work");
+		}
+		else
+		{
+			puts("test makeLetterLowercase didn't work");
+		}
+
+	return ok;
+}
+
 
