@@ -10,7 +10,7 @@
 bool production(int argc, char* argv[])
 {
 	bool answer = true;
-	int nCalls = -1;
+	int nCalls = 1;
 
 		if(argc <=1) //no interesting information
 		{
