@@ -20,6 +20,7 @@ void initSpace(cardCellContent** corner, int howManyCols)
 			x->letter = (char)randomLet;
 			int randomNum = rand() % 10 + 48;
 			x->digit = (char)randomNum;
+			x->matched = false;
 			cardCellContent**  thatCellP = corner + row*howManyCols + col;
 			*thatCellP = x; //put its address into bingo card space
 		}
