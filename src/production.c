@@ -73,7 +73,11 @@ bool production(int argc, char* argv[])
 	    	//is it a match?
 	    	makeLetterLowercase(theSpaceP,callL,callN,5);
 	    	//check for a win here?
-
+	    	if(win(theSpaceP)){
+	    		puts("AHBDAUSHDJB WIN!");
+	    		displaySpace(theSpaceP,5);
+	    		return true;
+	    	}
 	    	//show/display the board
 	    	puts("-----------------");
 	    	displaySpace(theSpaceP,5);

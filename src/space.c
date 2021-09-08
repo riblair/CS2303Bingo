@@ -57,3 +57,60 @@ void makeLetterLowercase(cardCellContent** corner, char letter, char number, int
 			}
 		}
 }
+bool win(cardCellContent** corner) {
+	bool hasWin = true; // initalizes checker variable and sets it to true.
+
+	//first check, checks if there is a bingo in any column
+	for(int i = 0; i < 5; i++) { // checks every row
+		hasWin = true; //reset variable
+		for(int j = 0; j < 5;j++) { // checks every value in the column
+			cardCellContent** aCellPointer = corner+i+j*5;
+			if(!(*aCellPointer)->matched) {
+				hasWin = false;
+			}
+		}
+		if(hasWin) {
+			return true;
+		}
+	}
+
+	hasWin = true;
+	//second check, checks if there is a bingo in any row
+	for(int i = 0; i < 5; i++) { // checks every column
+		hasWin = true;
+		for(int j = 0; j < 5;j++) { // checks every value in row
+			cardCellContent** aCellPointer = corner+i*5+j;
+			if(!(*aCellPointer)->matched) {
+				hasWin = false;
+			}
+		}
+		if(hasWin) {
+			return true;
+		}
+	}
+
+	hasWin = true;
+	//third check, checks the top left to bottom right diag.
+	for(int i = 0; i < 5;i++) { // checks every value in diag
+		cardCellContent** aCellPointer = corner+i*6;
+		if(!(*aCellPointer)->matched) {
+			hasWin = false;
+		}
+	}
+	if(hasWin) {
+		return true;
+	}
+
+	hasWin = true;
+		//third check, checks the top left to bottom right diag.
+		for(int i = 0; i < 5;i++) { // checks every value in diag
+			cardCellContent** aCellPointer = 4+corner+i*4;
+			if(!(*aCellPointer)->matched) {
+				hasWin = false;
+			}
+		}
+		if(hasWin) {
+			return true;
+		}
+		return false;
+}
