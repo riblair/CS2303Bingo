@@ -21,7 +21,10 @@ bool tests()
 	bool ok3 = testMakeLList();
 	bool ok4 = testEnqueue();
 	bool ok5 = testPrintHistory();
-	answer = ok1 && ok3 && ok4 && ok5;
+	bool ok6 = testcallLetter();
+	bool ok7 = testcallNumber();
+	bool ok8 = testmakeLetterLowercase();
+	answer = ok1 && ok3 && ok4 && ok5 && ok6 && ok7 && ok8;
 	//answer = true;
 	return answer;
 }

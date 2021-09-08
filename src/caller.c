@@ -17,7 +17,6 @@ char callNumber()
 	int randomNum = rand() % 10 + 48;
 	char x = (char)randomNum;
 	return x;
-	return 'a';
 }
 // Calls a letter and number combination and marks the board
 
