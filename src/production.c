@@ -10,7 +10,7 @@
 bool production(int argc, char* argv[])
 {
 	bool answer = true;
-	int nCalls = 100;
+	int nCalls = 250;
 
 		if(argc <=1) //no interesting information
 		{
@@ -74,7 +74,7 @@ bool production(int argc, char* argv[])
 	    	makeLetterLowercase(theSpaceP,callL,callN,5);
 	    	//check for a win here?
 	    	if(win(theSpaceP)){
-	    		puts("AHBDAUSHDJB WIN!");
+	    		puts("Congratulations, You Win!");
 	    		displaySpace(theSpaceP,5);
 	    		return true;
 	    	}

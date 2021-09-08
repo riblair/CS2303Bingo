@@ -22,6 +22,9 @@ bool testPrintHistory();
 bool testcallLetter();
 bool testcallNumber();
 bool testmakeLetterLowercase();
-
+bool testWinRow();
+bool testWinColumn();
+bool testWinTopLeftDiag();
+bool testWinTopRightDiag();
 
 #endif /* TESTS_H_ */
