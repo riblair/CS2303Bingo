@@ -197,6 +197,37 @@ bool testRemoveFromList()
 bool testPrintHistory()
 {
 	bool ok = true;
+	LLNode* testList = makeEmptyLinkedList();
+
+	//test empty list
+		if(printHistoryTest(testList) != 0){
+			ok = false;
+		}
+
+	//test 1-element list
+
+		//create element and add to list
+			cardCellContent* aCall = (cardCellContent*)malloc(sizeof(cardCellContent));
+			aCall->letter = 'A';
+			aCall->digit = 0;
+			savePayload(testList, aCall);
+
+		//test
+			if(printHistoryTest(testList) != 1){
+				ok = false;
+			}
+
+	//test 50-element list
+		//add element to list 49 more times
+			for(int i = 0; i < 49; i++){
+				savePayload(testList, aCall);
+			}
+
+		//test
+			if(printHistoryTest(testList) != 50){
+				ok = false;
+			}
+
 	if(ok)
 	{
 		puts("testprintHistory did pass.");

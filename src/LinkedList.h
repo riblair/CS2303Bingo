@@ -54,6 +54,7 @@ void savePayload2(LLNode2* lp, Payload2* mp);
 bool isEmpty(LLNode* lp);
 Payload* dequeueLIFO(LLNode* lp);
 backFromDQFIFO* dequeueFIFO(LLNode* lp);
-void printHistory(LLNode2* hp);
+void printHistory(LLNode* hp);
+int printHistoryTest(LLNode* hp);
 
 #endif /* LINKEDLIST_H_ */

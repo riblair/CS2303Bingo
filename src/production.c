@@ -70,6 +70,18 @@ bool production(int argc, char* argv[])
 	    	//get what caller calls
 	    	char callL = callLetter();
 	    	char callN = callNumber();
+
+	    	//add call to linked list
+				// allocate space for cardCellContent
+				cardCellContent* currCall = (cardCellContent*)malloc(sizeof(cardCellContent));
+
+				// add save callL and callN
+				currCall->letter = callL;
+				currCall->digit = callN;
+
+				// savePayload(LinkedList, cardCellContent*)
+				savePayload(theListP, currCall);
+
 	    	//is it a match?
 	    	makeLetterLowercase(theSpaceP,callL,callN,5);
 	    	//check for a win here?
@@ -86,6 +98,8 @@ bool production(int argc, char* argv[])
 	    }
 
 	    //printHistory
+	    puts("\nPrinting call history...");
+	    printHistory(theListP);
 
 		return answer;
 }

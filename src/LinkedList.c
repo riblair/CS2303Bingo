@@ -162,32 +162,70 @@ backFromDQFIFO* dequeueFIFO(LLNode* lp)
 
 	return fp;
 }
-void printHistory(LLNode2* hp)
+
+void printHistory(LLNode* hp)
 {
-    puts("Printing history");
-    if(hp->payP ==(Payload2*)0)
+    if(hp->payP ==(Payload*)0)
     {
-         puts("Empty list");
+         puts("No calls made");
     }
+
     else
     {
-	    //traverse the list, printing as we go
-        float treasureSubtotal = 0.0;
-        int room = -1;
-        LLNode2* temp = hp;
-        while(temp->next)
-        {
-            room =temp->payP->roomNumber;
-            treasureSubtotal+= temp->payP->treasure;
-            printf("The room was %d, and the treasure subtotal was %f.\n", room, treasureSubtotal);
-            temp=(LLNode2*)temp->next;
+    	      	//traverse the list, printing as we go
+    	    	char callL = 0;
+    	        char callN = 0;
+    	        LLNode* temp = hp;
+    	        int whichCall = 1;
 
-        }
-        room =temp->payP->roomNumber;
-        treasureSubtotal+= temp->payP->treasure;
-        printf("The room was %d, and the treasure subtotal was %f.\n", room, treasureSubtotal);
-    }
+    	        while(temp->next)
+    	        {
+    	            callL = temp->payP->letter;
+    	            callN = temp->payP->digit;
+    	            printf("Call #%i: %c%c\n", whichCall, callL, callN);
+    	            temp = (LLNode*)temp->next;
+    	            whichCall++;
+
+    	        }
+    	        	callL = temp->payP->letter;
+    	        	callN = temp->payP->digit;
+    	          	printf(" " + callL + callN);
+    	    }
 }
+
+//same logic as printHistory, but better/cleaner to test (no printing)
+int printHistoryTest(LLNode* hp)
+{
+    if(hp->payP ==(Payload*)0)
+    {
+         //puts("No calls made");
+         return 0;
+    }
+
+    else
+    {
+    	      	//traverse the list, printing as we go
+    	    	char callL = 0;
+    	        char callN = 0;
+    	        LLNode* temp = hp;
+    	        int whichCall = 1;
+
+    	        while(temp->next)
+    	        {
+    	            callL = temp->payP->letter;
+    	            callN = temp->payP->digit;
+    	            //printf("Call #%i: %c%c\n", whichCall, callL, callN);
+    	            temp = (LLNode*)temp->next;
+    	            whichCall++;
+
+    	        }
+    	        	callL = temp->payP->letter;
+    	        	callN = temp->payP->digit;
+    	          	//printf(" " + callL + callN);
+    	          	return whichCall;
+    	    }
+}
+
 LLNode* removeFromList(LLNode* hP, Payload* pP)
 {
 	LLNode* retHead = hP;//only changes if first element gets removed
